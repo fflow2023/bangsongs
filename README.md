@@ -194,9 +194,9 @@
 - **Crucifix X**（十字架 X） – Ave Mujica（第10话）
 - **Greensleeves**（绿袖子） – 三角初华（第11话）
 - **聿日箋秋** – MyGO!!!!!（第13话）
-- **焚音打** MyGO!!!!!（第13话）
+- **焚音打** - MyGO!!!!!（第13话）
 - **八芒星ダンス**（八芒星之舞） – Ave Mujica（第13话）
-- **顔** –  Ave Mujica（第13话）
+- **顔** – Ave Mujica（第13话）
 - **天球のMúsica**（天球的 Música） – Ave Mujica（第13话）
 
 ---
@@ -206,7 +206,7 @@
 ### FILM LIVE（2019）
 
 - **ときめきエクスペリエンス！**（心跳体验，Instrumental / Opening） – Poppin'Party
-- **二重の虹**（二重之虹，Full） – Roselia
+- **二重の虹**（二重之虹，Full） – Poppin'Party
 - **Happy Happy Party!**（快乐快乐派对） – Poppin'Party
 - **Y.O.L.O!!!!!**（活在当下） – Afterglow
 - **Scarlet Sky**（猩红天空） – Afterglow
