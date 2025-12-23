@@ -199,10 +199,39 @@
 - **顔** –  Ave Mujica（第13话）
 - **天球のMúsica**（天球的 Música） – Ave Mujica（第13话）
 
-
 ---
 
 ## BanG Dream! FILM LIVE 系列
+
+### FILM LIVE（2019）
+
+- **ときめきエクスペリエンス！**（心跳体验，Instrumental / Opening） – Poppin'Party
+- **二重の虹**（二重之虹，Full） – Roselia
+- **Happy Happy Party!**（快乐快乐派对） – Poppin'Party
+- **Y.O.L.O!!!!!**（活在当下） – Afterglow
+- **Scarlet Sky**（猩红天空） – Afterglow
+- **ON YOUR MARK**（各就各位，Full） – Afterglow
+- **しゅわりん☆どり～みん**（泡泡☆Dreamin'） – Pastel＊Palettes
+- **ゆら・ゆらRing-Dong-Dance**（摇摇晃晃 Ring-Dong-Dance） – Pastel＊Palettes
+- **きゅ～まい＊flower**（Q萌＊Flower，Full） – Pastel＊Palettes
+- **えがおのオーケストラっ！**（笑容的管弦乐） – Hello, Happy World!
+- **世界ノビノビ Treasure!**（世界自在 Treasure） – Hello, Happy World!
+- **えがお・シング・あ・ソング**（笑容 Sing a Song，Full） – Hello, Happy World!
+- **LOUDER**（更响亮） – Roselia
+- **BLACK SHOUT**（黑色咆哮） – Roselia
+- **FIRE BIRD**（火鸟，Full） – Roselia
+- **Returns**（回归） – Poppin'Party
+- **Dreamers Go!**（梦想出发） – Poppin'Party
+
+**Encore（Full）**：
+
+- **BRAVE JEWEL**（勇气宝石） – Roselia
+- **キズナミュージック♪**（羁绊音乐） – Poppin'Party
+
+**End Credits（ED）**：
+
+- **Jumpin'**（跃动吧！） – Poppin'Party
+
 
 ### FILM LIVE 2nd Stage（2021）新增曲
 
