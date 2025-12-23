@@ -553,9 +553,9 @@ const songsData = [
         const favSongs = songsData.filter((s) => this.state.favorites.has(s.id));
         let text = "🎵 我的 BanG Dream! 歌单分享 🎵";
         favSongs.forEach((s, i) => {
-          text += `${i + 1}. ${s.title} (${s.band})`;
+          text += `\n${i + 1}. ${s.title} (${s.band})`;
         });
-        text += "来自 BanG Dream! Archive 网页( https://fflow2023.github.io/bangsongs )";
+        text += "\n来自 BanG Dream! Archive 网页( https://fflow2023.github.io/bangsongs )";
 
         navigator.clipboard
           .writeText(text)
