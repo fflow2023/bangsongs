@@ -48,7 +48,7 @@
 
 - **Don't be afraid!**（别害怕！） – Glitter☆Green（第1话）
 
-- **キラキラだとか夢だとか ～Sing Girls～**（无论闪耀还是梦想~歌之少女~） – Poppin'Party（常规 ED）
+- **キラキラだとか夢だとか ～Sing Girls～**（无论闪耀还是梦想～歌之少女～） – Poppin'Party（常规 ED）
 
 ### Insert Songs
 
@@ -58,7 +58,7 @@
 
 - **私の心はチョココロネ**（我的心是巧克力螺） – Poppin'Party（第5话）
 
-- **STAR BEAT! ～ホシノコドウ～**（STAR BEAT!~星之鼓动~） – Poppin'Party（第8话）
+- **STAR BEAT! ～ホシノコドウ～**（STAR BEAT! ～星之鼓动～） – Poppin'Party（第8话）
 
 - **前へススメ！**（前进吧！） – Poppin'Party（第9、11、12话）
 
@@ -106,7 +106,7 @@
 
 - **BLACK SHOUT**（黑色咆哮） – Roselia（第2、12话）
 
-- **キラキラだとか夢だとか ～Sing Girls～**（无论闪耀还是梦想~歌之少女~） – Poppin'Party（第3话）
+- **キラキラだとか夢だとか ～Sing Girls～**（无论闪耀还是梦想～歌之少女～） – Poppin'Party（第3话）
 
 - **ゴーカ！ごーかい！？ファントムシーフ！**（豪华!豪爽!?怪盗!） – Hello, Happy World!（第4话）
 
@@ -347,19 +347,19 @@
 
 ### Insert Songs
 
-- **天下トーイツ A to Z☆** – Poppin’Party（插入曲）
+- **天下トーイツ A to Z☆** – Pastel＊Palettes（插入曲）
 
 - **走り始めたばかりのキミに ～Popipa Acoustic Ver.～**（致刚刚起跑的你） – Poppin’Party（插入曲）
 
-- **金色へのプレリュード**（通往金色的序曲） – Morfonica（插入曲）
+- **金色へのプレリュード**（走向金色的序曲） – Morfonica（插入曲）
 
 - **!NVADE SHOW!** – RAISE A SUILEN（插入曲）
 
 - **DRIVE US CRAZY** – RAISE A SUILEN（插入曲）
 
-- **Breakthrough!** – RAISE A SUILEN（插入曲）
+- **Breakthrough!** – Poppin’Party（插入曲）
 
-- **Time Lapse** – RAISE A SUILEN（插入曲）
+- **Time Lapse** – Poppin’Party（插入曲）
 
 - **ときめきエクスペリエンス！**（心跳体验！） – Poppin’Party（插入曲）
 
@@ -451,7 +451,7 @@
 
 ### Insert Songs
 
-- **金色へのプレリュード**（通往金色的序曲） – Morfonica（第1话）
+- **金色へのプレリュード**（走向金色的序曲） – Morfonica（第1话）
 
 - **Ave Mujica**（Ave Mujica） – Ave Mujica（第2、5、9话）
 
