@@ -1,4 +1,13 @@
-# BanG Dream! 动画原创歌曲整理
+<div align="center">
+  <h1>🎵 BanG Dream! 动画原创歌曲整理</h1>
+
+  <a href="https://fflow2023.github.io/bangsongs">
+    <img src="https://img.shields.io/badge/_点击感受-星之鼓动_⭐-FF6B6B?style=for-the-badge&logo=github" alt="krkrdkdk">
+  </a>
+  <br><br>
+</div>
+
+---
 
 > 说明：仅收录 **动画中出现的原创歌曲**（含 OP / ED / 插入曲），不包含翻唱曲或仅在游戏中先行发布的歌曲。每首歌标注出现话数、演唱团体，并在日文歌名后给出常见译名或别称。
 
@@ -210,43 +219,43 @@
 
 - **ときめきエクスペリエンス！**（心跳体验，Instrumental / Opening） – Poppin'Party
 
-- **二重の虹**（二重彩虹，新增） – Poppin'Party
+- **二重の虹**（二重之虹，Full 新增） – Poppin'Party
 
 - **Happy Happy Party!**（欢乐派对！） – Poppin'Party
 
-- **Y.O.L.O!!!!!**（活在当下） – Afterglow
+- **Y.O.L.O!!!!!**（时光不再来） – Afterglow
 
-- **Scarlet Sky**（猩红天空） – Afterglow
+- **Scarlet Sky**（绯红色的天空） – Afterglow
 
 - **ON YOUR MARK**（各就各位，Full） – Afterglow
 
-- **しゅわりん☆どり～みん**（Shuwarin☆Dreaming） – Pastel＊Palettes
+- **しゅわりん☆どり～みん**（气泡飞舞☆如梦幻） – Pastel＊Palettes
 
-- **ゆら・ゆらRing-Dong-Dance**（摇摇曳曳圆舞曲） – Pastel＊Palettes
+- **ゆら・ゆらRing-Dong-Dance**（摇・曳圆舞曲） – Pastel＊Palettes
 
 - **きゅ～まい＊flower**（可爱而坚强的花，Full） – Pastel＊Palettes
 
-- **えがおのオーケストラっ！**（笑容管弦乐！） – Hello, Happy World!
+- **えがおのオーケストラっ！**（笑容满溢的交响乐团！） – Hello, Happy World!
 
-- **世界ノビノビ Treasure!**（世界无限延伸Treasure!） – Hello, Happy World!
+- **世界ノビノビ Treasure!**（在世界不断延伸的宝藏!） – Hello, Happy World!
 
-- **えがお・シング・あ・ソング**（笑容 Sing a Song，Full） – Hello, Happy World!
+- **えがお・シング・あ・ソング**（唱首欢笑的歌，Full） – Hello, Happy World!
 
-- **LOUDER**（嘹亮） – Roselia
+- **LOUDER**（高歌吧） – Roselia
 
 - **BLACK SHOUT**（黑色咆哮） – Roselia
 
-- **FIRE BIRD**（火鸟，Full） – Roselia
+- **FIRE BIRD**（火凤凰，Full） – Roselia
 
-- **Returns**（归来） – Poppin'Party
+- **Returns**（回归） – Poppin'Party
 
-- **Dreamers Go!**（追梦人出发！） – Poppin'Party
+- **Dreamers Go!**（追梦人 前进！） – Poppin'Party
 
 **Encore（Full）**：
 
 - **BRAVE JEWEL**（勇气宝石） – Roselia
 
-- **キズナミュージック♪**（友谊的华丽乐章） – Poppin'Party
+- **キズナミュージック♪**（友谊的华丽乐章♪） – Poppin'Party
 
 **End Credits（ED）**：
 
@@ -483,4 +492,5 @@
 
 ## BanG Dream! YUME∞MITA（2026）
 
-(剩余待补充)
+## BanG Dream! YUME∞MITA（2026）
+(等待中)
