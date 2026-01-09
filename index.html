@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BanG Dream! Archive</title>
+  <title>BangSongs Archive</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
@@ -583,7 +583,7 @@ const songsData = [
         favSongs.forEach((s, i) => {
           text += `\n${i + 1}. ${s.title} (${s.band})`;
         });
-        text += "\n来自 BanG Dream! Archive 网页( https://fflow2023.github.io/bangsongs )";
+        text += "\n来自 BangSongs Archive 网页( fflow2023.github.io/bangsongs )";
 
         navigator.clipboard
           .writeText(text)

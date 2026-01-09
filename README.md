@@ -492,5 +492,4 @@
 
 ## BanG Dream! YUME∞MITA（2026）
 
-## BanG Dream! YUME∞MITA（2026）
-(等待中)
+(待续)
