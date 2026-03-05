@@ -1,0 +1,118 @@
+/* === 字体引入 === */
+@import url("https://fonts.googleapis.cn/css2?family=M+PLUS+Rounded+1c:wght@300;400;700&display=swap");
+
+/* === 基础样式 === */
+body {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+/* === 卡片悬浮效果 === */
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.5),
+    0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* === 自定义滚动条 === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* === 毛玻璃面板 === */
+.glass-panel {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* === 乐队标签颜色 === */
+.band-tag-PoppinParty {
+  background-color: #ff3370;
+  color: white;
+}
+.band-tag-Roselia {
+  background-color: #3344aa;
+  color: white;
+}
+.band-tag-Afterglow {
+  background-color: #e93340;
+  color: white;
+}
+.band-tag-PastelPalettes {
+  background-color: #44ddcc;
+  color: black;
+}
+.band-tag-HelloHappyWorld {
+  background-color: #ffcc11;
+  color: black;
+}
+.band-tag-RAISEASUILEN {
+  background-color: #445566;
+  color: white;
+  border: 1px solid #ccff00;
+}
+.band-tag-Morfonica {
+  background-color: #eeeeff;
+  color: #112233;
+}
+.band-tag-MyGO {
+  background-color: #335577;
+  color: white;
+}
+.band-tag-AveMujica {
+  background-color: #1a1a1a;
+  color: #cc3333;
+  border: 1px solid #cc3333;
+}
+.band-tag-GlitterGreen {
+  background-color: #77dd77;
+  color: white;
+}
+.band-tag-CHiSPA {
+  background-color: #ffaa55;
+  color: white;
+}
+.band-tag-CRYCHIC {
+  background-color: #e0e0e0;
+  color: #555;
+}
+.band-tag-sumimi {
+  background-color: #ff88cc;
+  color: white;
+}
+
+/* === 收藏按钮激活态 === */
+.like-btn.active span {
+  font-variation-settings: "FILL" 1;
+  color: #ef4444;
+}
+
+/* === 播放按钮脉冲动画 === */
+@keyframes pulse-pink {
+  0% {
+    box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(236, 72, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(236, 72, 153, 0);
+  }
+}
+.play-btn:hover {
+  animation: pulse-pink 1.5s infinite;
+}

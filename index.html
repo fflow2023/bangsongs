@@ -1,620 +1,146 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BangSongs Archive</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fbbf24'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
-
-  <style>
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;700&display=swap');
-        
-        body {
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-        }
-
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1e293b; }
-        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
-
-        .glass-panel {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .band-tag-PoppinParty { background-color: #ff3370; color: white; }
-        .band-tag-Roselia { background-color: #3344aa; color: white; }
-        .band-tag-Afterglow { background-color: #e93340; color: white; }
-        .band-tag-PastelPalettes { background-color: #44ddcc; color: black; }
-        .band-tag-HelloHappyWorld { background-color: #ffcc11; color: black; }
-        .band-tag-RAISEASUILEN { background-color: #445566; color: white; border: 1px solid #ccff00; }
-        .band-tag-Morfonica { background-color: #eeeeff; color: #112233; }
-        .band-tag-MyGO { background-color: #335577; color: white; }
-        .band-tag-AveMujica { background-color: #1a1a1a; color: #cc3333; border: 1px solid #cc3333; }
-        .band-tag-GlitterGreen { background-color: #77dd77; color: white; }
-        .band-tag-CHiSPA { background-color: #ffaa55; color: white; }
-        .band-tag-CRYCHIC { background-color: #e0e0e0; color: #555; }
-        .band-tag-sumimi { background-color: #ff88cc; color: white; }
-        
-        .like-btn.active span {
-            font-variation-settings: 'FILL' 1;
-            color: #ef4444;
-        }
-
-        @keyframes pulse-pink {
-            0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(236, 72, 153, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
-        }
-        .play-btn:hover { animation: pulse-pink 1.5s infinite; }
-  </style>
-</head>
-<body class="min-h-screen flex flex-col">
-  <!-- Hero -->
-  <div class="relative w-full h-64 md:h-80 overflow-hidden group">
-    <img
-      id="heroImage"
-      alt="BanG Dream! Hero Background"
-      class="absolute inset-0 w-full h-full object-cover opacity-20"
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BangSongs Archive</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fbbf24'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.cn/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Hero -->
+    <div class="relative w-full h-64 md:h-80 overflow-hidden group">
+      <img
+        id="heroImage"
+        alt="BanG Dream! Hero Background"
+        class="absolute inset-0 w-full h-full object-cover opacity-20"
+      />
 
-    <!-- GitHub (floating) -->
-    <a href="https://github.com/fflow2023/bangsongs"
-       target="_blank"
-       rel="noreferrer"
-       title="打开 GitHub 仓库"
-       class="absolute top-4 right-4 z-30 flex items-center justify-center w-12 h-12 rounded-full
-              bg-slate-900/70 border border-slate-600 backdrop-blur
-              hover:border-slate-400 hover:bg-slate-800/70 transition shadow-lg">
-      <svg viewBox="0 0 24 24" aria-hidden="true" class="w-6 h-6 fill-slate-200">
-        <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.42 7.86 10.95.58.11.79-.25.79-.56v-2.02c-3.2.7-3.88-1.55-3.88-1.55-.53-1.35-1.29-1.71-1.29-1.71-1.06-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.76.41-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.28 5.69.42.36.79 1.07.79 2.16v3.2c0 .31.21.68.8.56A11.53 11.53 0 0 0 23.5 12C23.5 5.74 18.27.5 12 .5z"/>
-      </svg>
-    </a>
+      <!-- GitHub (floating) -->
+      <a
+        href="https://github.com/fflow2023/bangsongs"
+        target="_blank"
+        rel="noreferrer"
+        title="打开 GitHub 仓库"
+        class="absolute top-4 right-4 z-30 flex items-center justify-center w-12 h-12 rounded-full bg-slate-900/70 border border-slate-600 backdrop-blur hover:border-slate-400 hover:bg-slate-800/70 transition shadow-lg"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          class="w-6 h-6 fill-slate-200"
+        >
+          <path
+            d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.42 7.86 10.95.58.11.79-.25.79-.56v-2.02c-3.2.7-3.88-1.55-3.88-1.55-.53-1.35-1.29-1.71-1.29-1.71-1.06-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.76.41-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.28 5.69.42.36.79 1.07.79 2.16v3.2c0 .31.21.68.8.56A11.53 11.53 0 0 0 23.5 12C23.5 5.74 18.27.5 12 .5z"
+          />
+        </svg>
+      </a>
 
-    <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center z-10 pointer-events-none">
-      <h1 class="text-4xl md:text-6xl font-bold mb-2 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 drop-shadow-lg">
-        BanG Dream! 动画系列歌曲整理
-      </h1>
-      <p class="text-slate-300 text-lg md:text-xl max-w-2xl">
+      <div
+        class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center z-10 pointer-events-none"
+      >
+        <h1
+          class="text-4xl md:text-6xl font-bold mb-2 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 drop-shadow-lg"
+        >
+          BanG Dream! 动画系列歌曲整理
+        </h1>
+        <p class="text-slate-300 text-lg md:text-xl max-w-2xl">
           快速检索 · 一键分享
-      </p>
-    </div>
-  </div>
-
-  <!-- Main -->
-  <div class="flex-grow container mx-auto px-4 py-8 relative z-20 -mt-10">
-    <!-- Controls -->
-    <div class="glass-panel rounded-2xl p-6 mb-8 shadow-xl">
-      <!-- Search & Share -->
-      <div class="flex flex-col md:flex-row gap-4 mb-6 justify-between items-center">
-        <div class="relative w-full md:w-1/2">
-          <span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400">search</span>
-          <input id="searchInput" type="text" placeholder="搜索歌名、翻译、或乐队..."
-                 class="w-full bg-slate-800 border border-slate-600 rounded-full py-3 pl-10 pr-4 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-pink-500 transition" />
-        </div>
-
-        <div class="flex gap-3 w-full md:w-auto">
-          <button id="favFilterBtn" onclick="app.toggleFavoritesOnly()"
-                  class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-white px-5 py-3 rounded-full transition border border-slate-500">
-            <span class="material-symbols-outlined text-red-400">favorite</span>
-            <span id="favBtnText">只看收藏</span>
-          </button>
-
-          <button onclick="app.shareFavorites()"
-                  class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white px-6 py-3 rounded-full shadow-lg transition transform hover:scale-105">
-            <span class="material-symbols-outlined">share</span>
-            <span>分享喜爱</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Filters -->
-      <div class="flex flex-col gap-4">
-        <div class="overflow-x-auto pb-2">
-          <div id="seasonFilters" class="flex gap-2 min-w-max"></div>
-        </div>
-
-        <div class="overflow-x-auto pb-2">
-          <div id="bandFilters" class="flex gap-2 min-w-max"></div>
-        </div>
+        </p>
       </div>
     </div>
 
-    <!-- Grid -->
-    <div id="songGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+    <!-- Main -->
+    <div class="flex-grow container mx-auto px-4 py-8 relative z-20 -mt-10">
+      <!-- Controls -->
+      <div class="glass-panel rounded-2xl p-6 mb-8 shadow-xl">
+        <!-- Search & Share -->
+        <div
+          class="flex flex-col md:flex-row gap-4 mb-6 justify-between items-center"
+        >
+          <div class="relative w-full md:w-1/2">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400"
+              >search</span
+            >
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="搜索歌名、翻译、或乐队..."
+              class="w-full bg-slate-800 border border-slate-600 rounded-full py-3 pl-10 pr-4 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
+            />
+          </div>
 
-    <!-- Empty -->
-    <div id="emptyState" class="hidden text-center py-20">
-      <span class="material-symbols-outlined text-6xl text-slate-600 mb-4">music_off</span>
-      <p class="text-xl text-slate-400">没有找到匹配的歌曲</p>
-      <button onclick="app.resetFilters()" class="mt-4 text-pink-400 hover:underline">重置筛选</button>
-    </div>
-  </div>
-
-  <!-- Toast -->
-  <div id="toast"
-       class="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-slate-800 border border-slate-600 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 transition-opacity duration-300 opacity-0 pointer-events-none z-50">
-    <span class="material-symbols-outlined text-green-400">check_circle</span>
-    <span id="toastMsg">操作成功</span>
-  </div>
-
-  <script>
-    // 数据源：仅包含“动画中出现的完整演出/插入曲/OP/ED”。
-const songsData = [
-    // S1
-    { id: 101, title: "Don’t be afraid!", trans: "别害怕！", band: "Glitter*Green", season: "S1", ep: "第1–2话", type: "Insert" },
-    { id: 102, title: "ときめきエクスペリエンス！", trans: "心跳体验", band: "Poppin'Party", season: "S1", ep: "OP", type: "OP" },
-    { id: 103, title: "キラキラだとか夢だとか ～Sing Girls～", trans: "无论闪耀还是梦想~歌之少女~", band: "Poppin'Party", season: "S1", ep: "常规 ED", type: "ED" },
-    { id: 104, title: "きらきら星 ～初めてのステージVer.～", trans: "小星星～初次舞台版～", band: "Poppin'Party", season: "S1", ep: "第3–4话", type: "Insert" },
-    { id: 105, title: "私の心はチョココロネ", trans: "我的心是巧克力螺", band: "Poppin'Party", season: "S1", ep: "第5话", type: "Insert" },
-    { id: 106, title: "STAR BEAT! ～ホシノコドウ～", trans: "STAR BEAT!~星之鼓动~", band: "Poppin'Party", season: "S1", ep: "第8话", type: "Insert" },
-    { id: 107, title: "前へススメ！", trans: "前进吧！", band: "Poppin'Party", season: "S1", ep: "第9、11、12话", type: "Insert" },
-    { id: 108, title: "Glee! Glee! Glee!", trans: "欢呼吧！", band: "Glitter*Green", season: "S1", ep: "第13话", type: "Insert" },
-    { id: 109, title: "Be shine, shining!!", trans: "闪耀吧，光芒！", band: "CHiSPA", season: "S1", ep: "第13话", type: "Insert" },
-    { id: 110, title: "夢みるSunflower", trans: "怀有梦想的向日葵", band: "Poppin'Party", season: "S1", ep: "第13话", type: "Insert" },
-    { id: 111, title: "八月のif", trans: "八月的 if", band: "Poppin'Party", season: "S1", ep: "OVA", type: "Insert" },
-    { id: 112, title: "熱色スターマイン", trans: "热色Star Mine", band: "Roselia", season: "S1", ep: "OVA", type: "ED" },
-    { id: 113, title: "Don’t be afraid!", trans: "别害怕！", band: "Glitter*Green", season: "S1", ep: "第1话", type: "ED" },
-    // S2
-    { id: 201, title: "キズナミュージック♪", trans: "友谊的华丽乐章♪", band: "Poppin'Party", season: "S2", ep: "第1、3–9、12话", type: "OP" },
-    { id: 202, title: "BRAVE JEWEL", trans: "勇气宝石", band: "Roselia", season: "S2", ep: "第2、10–11话", type: "OP" },
-    { id: 203, title: "Jumpin'", trans: "跃动吧！", band: "Poppin'Party", season: "S2", ep: "第3–8、11–12话", type: "ED" },
-    { id: 204, title: "Safe and Sound", trans: "安稳与守护", band: "Roselia", season: "S2", ep: "第2、9–10话", type: "ED" },
-    { id: 205, title: "キズナミュージック♪", trans: "友谊的华丽乐章♪ 特别版", band: "Poppin'Party", season: "S2", ep: "第13话", type: "ED" },
-    { id: 206, title: "しゅわりん☆どり～みん", trans: "气泡飞舞☆如梦幻", band: "Pastel*Palettes", season: "S2", ep: "第1、13话", type: "Insert" },
-    { id: 207, title: "Scarlet Sky", trans: "绯红色的天空", band: "Afterglow", season: "S2", ep: "第1话", type: "Insert" },
-    { id: 208, title: "えがおのオーケストラっ！", trans: "笑容满溢的交响乐团！", band: "Hello, Happy World!", season: "S2", ep: "第1话", type: "Insert" },
-    { id: 209, title: "LOUDER", trans: "高歌吧", band: "Roselia", season: "S2", ep: "第1话", type: "Insert" },
-    { id: 210, title: "Happy Happy Party!", trans: "欢乐派对！", band: "Poppin'Party", season: "S2", ep: "第1–2、6话", type: "Insert" },
-    { id: 211, title: "BLACK SHOUT", trans: "黑色咆哮", band: "Roselia", season: "S2", ep: "第2、12话", type: "Insert" },
-    { id: 212, title: "キラキラだとか夢だとか ～Sing Girls～", trans: "无论闪耀还是梦想~歌之少女~", band: "Poppin'Party", season: "S2", ep: "第3话", type: "Insert" },
-    { id: 213, title: "ゴーカ！ごーかい！？ファントムシーフ！", trans: "豪华!豪爽!?怪盗!", band: "Hello, Happy World!", season: "S2", ep: "第4话", type: "Insert" },
-    { id: 214, title: "世界ノビノビ Treasure!", trans: "在世界不断延伸的宝藏!", band: "Hello, Happy World!", season: "S2", ep: "第4话", type: "Insert" },
-    { id: 215, title: "パスパレボリューションず☆", trans: "Pasupare 大革命", band: "Pastel*Palettes", season: "S2", ep: "第5话", type: "Insert" },
-    { id: 216, title: "ゆら・ゆらRing-Dong-Dance", trans: "摇・曳圆舞曲", band: "Pastel*Palettes", season: "S2", ep: "第5、11话", type: "Insert" },
-    { id: 217, title: "That Is How I Roll! -instrumental-", trans: "这就是我的作风", band: "Afterglow", season: "S2", ep: "第6话（BGM）", type: "Insert" },
-    { id: 218, title: "Y.O.L.O!!!!!", trans: "时光不再来", band: "Afterglow", season: "S2", ep: "第6话", type: "Insert" },
-    { id: 219, title: "Don’t be afraid!", trans: "别害怕！", band: "Glitter*Green", season: "S2", ep: "第7话", type: "Insert" },
-    { id: 220, title: "泣かない泣かない", trans: "我不 哭我 不哭", band: "花园多惠 & LAYER", season: "S2", ep: "第7、10话", type: "Insert" },
-    { id: 221, title: "ひとりじゃないんだから", trans: "因为并非孤单一人", band: "Pastel*Palettes", season: "S2", ep: "第8–9话", type: "Insert" },
-    { id: 222, title: "Determination Symphony", trans: "决意交响曲", band: "Roselia", season: "S2", ep: "第9话", type: "Insert" },
-    { id: 223, title: "UNSTOPPABLE", trans: "无法阻挡", band: "RAISE A SUILEN", season: "S2", ep: "第10话", type: "Insert" },
-    { id: 224, title: "R・I・O・T", trans: "暴动", band: "RAISE A SUILEN", season: "S2", ep: "第10话", type: "Insert" },
-    { id: 225, title: "きらきら星", trans: "小星星", band: "Poppin'Party", season: "S2", ep: "第11话", type: "Insert" },
-    { id: 226, title: "STAR BEAT! ～ホシノコドウ～", trans: "STAR BEAT!～星之鼓动～", band: "Poppin'Party", season: "S2", ep: "第11话", type: "Insert" },
-    { id: 227, title: "Returns", trans: "回归", band: "花园多惠", season: "S2", ep: "第11话", type: "Insert" },
-    { id: 228, title: "Returns", trans: "回归", band: "Poppin'Party", season: "S2", ep: "第12–13话", type: "Insert" },
-    { id: 229, title: "Dreamers Go!", trans: "追梦人 前进！", band: "户山香澄", season: "S2", ep: "第12话", type: "Insert" },
-    { id: 230, title: "Dreamers Go!", trans: "追梦人 前进！", band: "Poppin'Party", season: "S2", ep: "第13话", type: "Insert" },
-    { id: 231, title: "えがお・シング・あ・ソング", trans: "唱首欢笑的歌", band: "Hello, Happy World!", season: "S2", ep: "第13话", type: "Insert" },
-    { id: 232, title: "きゅ～まい＊flower", trans: "可爱而坚强的花", band: "Pastel*Palettes", season: "S2", ep: "第13话", type: "Insert" },
-    { id: 233, title: "ON YOUR MARK", trans: "各就各位", band: "Afterglow", season: "S2", ep: "第13话", type: "Insert" },
-    { id: 234, title: "FIRE BIRD", trans: "火凤凰", band: "Roselia", season: "S2", ep: "第13话", type: "Insert" },
-    // S3
-    { id: 301, title: "イニシャル", trans: "Initial", band: "Poppin'Party", season: "S3", ep: "OP", type: "OP" },
-    { id: 302, title: "夢を撃ち抜く瞬間に！", trans: "击穿梦想的瞬间！", band: "Poppin'Party", season: "S3", ep: "第1–6、8–12话", type: "ED" },
-    { id: 303, title: "FIRE BIRD", trans: "火凤凰", band: "Roselia", season: "S3", ep: "第7话", type: "ED" },
-    { id: 304, title: "Determination Symphony", trans: "决意交响曲", band: "Roselia", season: "S3", ep: "第1话", type: "Insert" },
-    { id: 305, title: "R・I・O・T", trans: "暴动", band: "RAISE A SUILEN", season: "S3", ep: "第1–3、10话", type: "Insert" },
-    { id: 306, title: "FIRE BIRD", trans: "火凤凰", band: "Roselia", season: "S3", ep: "第3话", type: "Insert" },
-    { id: 307, title: "Step×Step!", trans: "一步一步", band: "Poppin'Party", season: "S3", ep: "第3–4话", type: "Insert" },
-    { id: 308, title: "EXPOSE 'Burn out!!!'", trans: "燃尽曝光", band: "RAISE A SUILEN", season: "S3", ep: "第4–7、10话", type: "Insert" },
-    { id: 309, title: "もういちど ルミナス", trans: "再次 闪耀", band: "Pastel*Palettes", season: "S3", ep: "第5话", type: "Insert" },
-    { id: 310, title: "ぽっぴん’しゃっふる", trans: "Poppin' Shuffle", band: "Poppin'Party", season: "S3", ep: "第5、9、13话", type: "Insert" },
-    { id: 311, title: "LOUDER", trans: "高歌吧", band: "Roselia", season: "S3", ep: "第6–7话", type: "Insert" },
-    { id: 312, title: "UNSTOPPABLE", trans: "无法阻挡", band: "RAISE A SUILEN", season: "S3", ep: "第6话", type: "Insert" },
-    { id: 313, title: "しゅわりん☆どり～みん", trans: "气泡飞舞☆如梦幻", band: "Pastel*Palettes", season: "S3", ep: "第8话", type: "Insert" },
-    { id: 314, title: "えがお・シング・あ・ソング", trans: "唱首欢笑的歌", band: "Hello, Happy World!", season: "S3", ep: "第9话", type: "Insert" },
-    { id: 315, title: "Don’t be afraid!", trans: "别害怕！", band: "Glitter*Green", season: "S3", ep: "第9话", type: "Insert" },
-    { id: 316, title: "Dreamers Go!", trans: "追梦人 前进！", band: "Poppin'Party", season: "S3", ep: "第9话", type: "Insert" },
-    { id: 317, title: "Beautiful Birthday", trans: "美好的生日", band: "RAISE A SUILEN", season: "S3", ep: "第11、13话", type: "Insert" },
-    { id: 318, title: "ミライトレイン", trans: "驶向未来的列车", band: "Poppin'Party", season: "S3", ep: "第13话", type: "Insert" },
-    { id: 319, title: "Avant-garde HISTORY", trans: "前卫派历史", band: "Roselia", season: "S3", ep: "第13话", type: "Insert" },
-    { id: 320, title: "夢を撃ち抜く瞬間に！", trans: "击穿梦想的瞬间！", band: "Poppin'Party × Roselia × RAISE A SUILEN", season: "S3", ep: "第13话", type: "Insert" },
-    // Film Live
-    { id: 604, title: "ときめきエクスペリエンス！", trans: "心跳体验，Instrumental / Opening", band: "Poppin'Party", season: "Film Live", ep: "FILM LIVE", type: "OP" },
-    { id: 605, title: "二重の虹", trans: "二重之虹（Full 新增）", band: "Poppin'Party", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 606, title: "Happy Happy Party!", trans: "欢乐派对！", band: "Poppin'Party", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 607, title: "Y.O.L.O!!!!!", trans: "时光不再来", band: "Afterglow", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 608, title: "Scarlet Sky", trans: "绯红色的天空", band: "Afterglow", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 609, title: "ON YOUR MARK", trans: "各就各位，Full", band: "Afterglow", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 610, title: "しゅわりん☆どり～みん", trans: "气泡飞舞☆如梦幻", band: "Pastel*Palettes", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 611, title: "ゆら・ゆらRing-Dong-Dance", trans: "摇・曳圆舞曲", band: "Pastel*Palettes", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 612, title: "きゅ～まい＊flower", trans: "可爱而坚强的花，Full", band: "Pastel*Palettes", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 613, title: "えがおのオーケストラっ！", trans: "笑容满溢的交响乐团！", band: "Hello, Happy World!", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 614, title: "世界ノビノビ Treasure!", trans: "在世界不断延伸的宝藏!", band: "Hello, Happy World!", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 615, title: "えがお・シング・あ・ソング", trans: "唱首欢笑的歌，Full", band: "Hello, Happy World!", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 616, title: "LOUDER", trans: "高歌吧", band: "Roselia", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 617, title: "BLACK SHOUT", trans: "黑色咆哮", band: "Roselia", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 618, title: "FIRE BIRD", trans: "火凤凰，Full", band: "Roselia", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 619, title: "Returns", trans: "回归", band: "Poppin'Party", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 620, title: "Dreamers Go!", trans: "追梦人 前进！", band: "Poppin'Party", season: "Film Live", ep: "FILM LIVE", type: "Insert" },
-    { id: 621, title: "BRAVE JEWEL", trans: "勇气宝石", band: "Roselia", season: "Film Live", ep: "FILM LIVE Encore（Full）", type: "Insert" },
-    { id: 622, title: "キズナミュージック♪", trans: "友谊的华丽乐章♪", band: "Poppin'Party", season: "Film Live", ep: "FILM LIVE Encore（Full）", type: "Insert" },
-    { id: 623, title: "Jumpin'", trans: "跃动吧！", band: "Poppin'Party", season: "Film Live", ep: "FILM LIVE End Credits", type: "ED" },
-    { id: 601, title: "絆色のアンサンブル", trans: "羁绊色的合奏", band: "Poppin'Party × Pastel*Palettes × Morfonica", season: "Film Live", ep: "FILM LIVE 2nd Stage", type: "Insert" },
-    { id: 602, title: "競宴Red×Violet", trans: "竞演 Red×Violet", band: "Roselia × Afterglow", season: "Film Live", ep: "FILM LIVE 2nd Stage", type: "Insert" },
-    { id: 603, title: "RASHAPEOPLE!", trans: "RASHAPEOPLE!", band: "RAISE A SUILEN × Hello, Happy World!", season: "Film Live", ep: "FILM LIVE 2nd Stage", type: "Insert" },
-    
-    // Episode of Roselia
-    { id: 801, title: "Proud of oneself", trans: "Proud of oneself", band: "Roselia", season: "Episode of Roselia", ep: "I（OP）", type: "OP" },
-    { id: 802, title: "overtuRe", trans: "overtuRe", band: "Roselia", season: "Episode of Roselia", ep: "I（ED）", type: "ED" },
-    { id: 803, title: "雨上がりの夢", trans: "雨后之梦", band: "凑友希那", season: "Episode of Roselia", ep: "I（插入曲）", type: "Insert" },
-    { id: 804, title: "BLACK SHOUT", trans: "黑色咆哮", band: "Roselia", season: "Episode of Roselia", ep: "I（插入曲）", type: "Insert" },
-    { id: 805, title: "Re:birth day", trans: "Re:birth day", band: "Roselia", season: "Episode of Roselia", ep: "I（插入曲）", type: "Insert" },
-    { id: 806, title: "しゅわりん☆どり～みん", trans: "气泡飞舞☆如梦幻", band: "Pastel*Palettes", season: "Episode of Roselia", ep: "I（插入曲）", type: "Insert" },
-    { id: 807, title: "LOUDER", trans: "高歌吧", band: "Roselia", season: "Episode of Roselia", ep: "I（插入曲）", type: "Insert" },
-    { id: 808, title: "Happy Happy Party!", trans: "欢乐派对！", band: "Poppin'Party", season: "Episode of Roselia", ep: "I（插入曲）", type: "Insert" },
-    { id: 809, title: "Neo-Aspect", trans: "Neo-Aspect", band: "Roselia", season: "Episode of Roselia", ep: "I（插入曲）", type: "Insert" },
-    { id: 810, title: "約束", trans: "约定", band: "凑友希那", season: "Episode of Roselia", ep: "I（插入曲）", type: "Insert" },
-    { id: 821, title: "Sing Alive", trans: "Sing Alive", band: "Roselia", season: "Episode of Roselia", ep: "II（OP）", type: "OP" },
-    { id: 822, title: "Singing “OURS”", trans: "Singing “OURS”", band: "Roselia", season: "Episode of Roselia", ep: "II（ED）", type: "ED" },
-    { id: 823, title: "約束", trans: "约定", band: "Roselia", season: "Episode of Roselia", ep: "II（插入曲）", type: "Insert" },
-    { id: 824, title: "“UNIONS” Road", trans: "“UNIONS” Road", band: "Roselia", season: "Episode of Roselia", ep: "II（插入曲）", type: "Insert" },
-    { id: 825, title: "LOUDER", trans: "高歌吧", band: "Roselia", season: "Episode of Roselia", ep: "II（插入曲）", type: "Insert" },
-    { id: 826, title: "Ringing Bloom", trans: "Ringing Bloom", band: "Roselia", season: "Episode of Roselia", ep: "II（插入曲）", type: "Insert" },
-    { id: 827, title: "きゅ～まい＊flower", trans: "可爱而坚强的花", band: "Pastel*Palettes", season: "Episode of Roselia", ep: "II（插入曲）", type: "Insert" },
-    { id: 828, title: "Neo-Aspect", trans: "Neo-Aspect", band: "Roselia", season: "Episode of Roselia", ep: "II（插入曲）", type: "Insert" },
-    { id: 829, title: "Song I am.", trans: "Song I am.", band: "Roselia", season: "Episode of Roselia", ep: "II（插入曲）", type: "Insert" },
-    // Morfonication
-    { id: 701, title: "flame of hope -instrumental-", trans: "希望之焰", band: "Morfonica", season: "Morfonication", ep: "前篇（ED）", type: "ED" },
-    { id: 702, title: "寄る辺のSunny, Sunny", trans: "有所依靠的Sunny,Sunny", band: "Morfonica", season: "Morfonication", ep: "后篇（插入曲）", type: "Insert" },
-    { id: 703, title: "fly with the night", trans: "fly with the night", band: "Morfonica", season: "Morfonication", ep: "前篇（插入曲）", type: "Insert" },
-    // Poppin’Dream!
-    { id: 901, title: "ぽっぴん’どりーむ！", trans: "Poppin’ Dream!", band: "Poppin'Party", season: "Poppin’Dream!", ep: "OP", type: "OP" },
-    { id: 902, title: "星の約束", trans: "星之约定", band: "Poppin'Party", season: "Poppin’Dream!", ep: "ED", type: "ED" },
-    { id: 903, title: "天下トーイツ A to Z☆", trans: "天下トーイツ A to Z☆", band: "Pastel*Palettes", season: "Poppin’Dream!", ep: "插入曲", type: "Insert" },
-    { id: 904, title: "走り始めたばかりのキミに ～Popipa Acoustic Ver.～", trans: "致刚刚起跑的你", band: "Poppin'Party", season: "Poppin’Dream!", ep: "插入曲", type: "Insert" },
-    { id: 905, title: "金色へのプレリュード", trans: "通往金色的序曲", band: "Morfonica", season: "Poppin’Dream!", ep: "插入曲", type: "Insert" },
-    { id: 906, title: "!NVADE SHOW!", trans: "!NVADE SHOW!", band: "RAISE A SUILEN", season: "Poppin’Dream!", ep: "插入曲", type: "Insert" },
-    { id: 907, title: "DRIVE US CRAZY", trans: "DRIVE US CRAZY", band: "RAISE A SUILEN", season: "Poppin’Dream!", ep: "插入曲", type: "Insert" },
-    { id: 908, title: "Breakthrough!", trans: "Breakthrough!", band: "Poppin'Party", season: "Poppin’Dream!", ep: "插入曲", type: "Insert" },
-    { id: 909, title: "Time Lapse", trans: "Time Lapse", band: "Poppin'Party", season: "Poppin’Dream!", ep: "插入曲", type: "Insert" },
-    { id: 910, title: "ときめきエクスペリエンス！", trans: "心跳体验！", band: "Poppin'Party", season: "Poppin’Dream!", ep: "插入曲", type: "Insert" },
-    // CiRCLE THANKS PARTY!
-    { id: 951, title: "CiRCLING", trans: "CiRCLING", band: "Poppin'Party", season: "CiRCLE THANKS PARTY!", ep: "ED 第1话", type: "ED" },
-    { id: 952, title: "SAKURA MEMORIES", trans: "樱之记忆", band: "Poppin'Party", season: "CiRCLE THANKS PARTY!", ep: "ED 第2话", type: "ED" },
-    { id: 953, title: "Photograph", trans: "照片", band: "Poppin'Party", season: "CiRCLE THANKS PARTY!", ep: "第1话", type: "Insert" },
-    { id: 954, title: "しゅわりん☆どり～みん", trans: "气泡飞舞☆如梦幻", band: "Pastel*Palettes", season: "CiRCLE THANKS PARTY!", ep: "第2话", type: "Insert" },
-    { id: 955, title: "CiRCLE THANKS MUSiC♪", trans: "CiRCLE THANKS MUSiC♪", band: "CiRCLE THANKS PARTY! 合唱", season: "CiRCLE THANKS PARTY!", ep: "第2话", type: "Insert" },
-    // MyGO!!!!!
-    { id: 401, title: "壱雫空", trans: "壱雫空", band: "MyGO!!!!!", season: "MyGO!!!!!", ep: "OP", type: "OP" },
-    { id: 402, title: "栞", trans: "栞", band: "MyGO!!!!!", season: "MyGO!!!!!", ep: "ED", type: "ED" },
-    { id: 403, title: "Here, the world!", trans: "Here, the world!", band: "sumimi", season: "MyGO!!!!!", ep: "第1、4、5、6、7话", type: "Insert" },
-    { id: 404, title: "Sasanqua", trans: "茶梅", band: "Afterglow", season: "MyGO!!!!!", ep: "第1、12话", type: "Insert" },
-    { id: 405, title: "Sprechchor", trans: "齐诵", band: "Roselia", season: "MyGO!!!!!", ep: "第1话", type: "Insert" },
-    { id: 406, title: "しゅわりん☆どり～みん", trans: "气泡飞舞☆如梦幻", band: "Pastel*Palettes", season: "MyGO!!!!!", ep: "第3话", type: "Insert" },
-    { id: 407, title: "もういちど ルミナス", trans: "再次 闪耀", band: "Pastel*Palettes", season: "MyGO!!!!!", ep: "第3话", type: "Insert" },
-    { id: 408, title: "人間になりたいうた", trans: "想要成为人类之歌", band: "CRYCHIC", season: "MyGO!!!!!", ep: "第3话", type: "Insert" },
-    { id: 409, title: "春日影", trans: "春日影", band: "CRYCHIC", season: "MyGO!!!!!", ep: "第3话", type: "Insert" },
-    { id: 410, title: "碧天伴走", trans: "碧天伴走", band: "MyGO!!!!!", season: "MyGO!!!!!", ep: "第7话", type: "Insert" },
-    { id: 411, title: "春日影", trans: "春日影", band: "MyGO!!!!!", season: "MyGO!!!!!", ep: "第7话", type: "Insert" },
-    { id: 412, title: "詩超絆", trans: "詩超絆", band: "MyGO!!!!!", season: "MyGO!!!!!", ep: "第10话", type: "Insert" },
-    { id: 413, title: "迷星叫", trans: "迷星叫", band: "MyGO!!!!!", season: "MyGO!!!!!", ep: "第12话", type: "Insert" },
-    { id: 414, title: "迷路日々", trans: "迷路日々", band: "MyGO!!!!!", season: "MyGO!!!!!", ep: "第12话", type: "Insert" },
-    { id: 415, title: "Ave Mujica", trans: "Ave Mujica", band: "Ave Mujica", season: "MyGO!!!!!", ep: "第13话", type: "Insert" },
-    // MyGO!!!!!
-    { id: 451, title: "過惰幻", trans: "過惰幻", band: "MyGO!!!!!", season: "MyGO!!!!!", ep: "Movie前篇（ED）", type: "ED" },
-    { id: 452, title: "歩拾道", trans: "歩拾道", band: "MyGO!!!!!", season: "MyGO!!!!!", ep: "Movie后篇（ED）", type: "ED" },
-    { id: 453, title: "処救生", trans: "処救生", band: "MyGO!!!!!", season: "MyGO!!!!!", ep: "Movie后篇（FILM LIVE 插段）", type: "Insert" },
-    { id: 454, title: "音一会", trans: "音一会", band: "MyGO!!!!!", season: "MyGO!!!!!", ep: "Movie后篇（FILM LIVE 插段）", type: "Insert" },
-    { id: 455, title: "壱雫空", trans: "壱雫空", band: "MyGO!!!!!", season: "MyGO!!!!!", ep: "Movie后篇（FILM LIVE 插段）", type: "Insert" },
-    // Ave Mujica
-    { id: 501, title: "KiLLKiSS", trans: "KiLLKiSS", band: "Ave Mujica", season: "Ave Mujica", ep: "第1话以完整版插曲替代OP；第9话额外用作插曲；第12话用作ED", type: "OP" },
-    { id: 502, title: "Georgette Me, Georgette You", trans: "Georgette Me, Georgette You", band: "Ave Mujica", season: "Ave Mujica", ep: "第12话用作OP（第1、10、13话未使用）", type: "ED" },
-    { id: 503, title: "金色へのプレリュード", trans: "通往金色的序曲", band: "Morfonica", season: "Ave Mujica", ep: "第1话", type: "Insert" },
-    { id: 504, title: "Ave Mujica", trans: "Ave Mujica", band: "Ave Mujica", season: "Ave Mujica", ep: "第2、5、9话", type: "Insert" },
-    { id: 505, title: "Here, the world!", trans: "此刻，世界", band: "sumimi", season: "Ave Mujica", ep: "第5、11话", type: "Insert" },
-    { id: 506, title: "迷路日々", trans: "迷路日々", band: "MyGO!!!!!", season: "Ave Mujica", ep: "第7话", type: "Insert" },
-    { id: 507, title: "人間になりたいうたⅡ", trans: "想要成为人类之歌Ⅱ", band: "CRYCHIC", season: "Ave Mujica", ep: "第7话", type: "Insert" },
-    { id: 508, title: "春日影", trans: "春日影", band: "CRYCHIC", season: "Ave Mujica", ep: "第7话", type: "Insert" },
-    { id: 509, title: "もういちど ルミナス", trans: "再次 闪耀", band: "Pastel*Palettes", season: "Ave Mujica", ep: "第8话", type: "Insert" },
-    { id: 510, title: "Imprisoned XII", trans: "Imprisoned XII", band: "Ave Mujica", season: "Ave Mujica", ep: "第10话", type: "Insert" },
-    { id: 511, title: "Crucifix X", trans: "Crucifix X", band: "Ave Mujica", season: "Ave Mujica", ep: "第10话", type: "Insert" },
-    { id: 513, title: "聿日箋秋", trans: "聿日箋秋", band: "MyGO!!!!!", season: "Ave Mujica", ep: "第13话", type: "Insert" },
-    { id: 514, title: "焚音打", trans: "焚音打", band: "MyGO!!!!!", season: "Ave Mujica", ep: "第13话", type: "Insert" },
-    { id: 515, title: "八芒星ダンス", trans: "八芒星Dance", band: "Ave Mujica", season: "Ave Mujica", ep: "第13话", type: "Insert" },
-    { id: 516, title: "顔", trans: "顔", band: "Ave Mujica", season: "Ave Mujica", ep: "第13话", type: "Insert" },
-    { id: 517, title: "天球のMúsica", trans: "天球的Musica", band: "Ave Mujica", season: "Ave Mujica", ep: "第13话", type: "Insert" },
-];
-
-
-    // 图片
-    const bandImages = {
-      "Glitter*Green": "images/GlitterGreen.png",
-      "CHiSPA": "images/CHiSPA.png",
-      "Poppin'Party": "images/Popipa.png",
-      "Roselia": "images/Roselia.png",
-      "Afterglow": "images/Afterglow.png",
-      "Pastel*Palettes": "images/Pasupare.png",
-      "Hello, Happy World!": "images/Hhw.png",
-      "RAISE A SUILEN": "images/RAS.png",
-      "Morfonica": "images/Morfonica.png",
-      "MyGO!!!!!": "images/MyGO.png",
-      "Ave Mujica": "images/Ave_Mujica.png",
-      "CRYCHIC": "images/CRYCHIC.png",
-      "sumimi": "images/sumimi.png"
-    };
-    const heroImageUrl = "images/Background.svg";
-
-    const bandStyles = {
-      "Poppin'Party": "band-tag-PoppinParty",
-      "Roselia": "band-tag-Roselia",
-      "Afterglow": "band-tag-Afterglow",
-      "Pastel*Palettes": "band-tag-PastelPalettes",
-      "Hello, Happy World!": "band-tag-HelloHappyWorld",
-      "RAISE A SUILEN": "band-tag-RAISEASUILEN",
-      "Morfonica": "band-tag-Morfonica",
-      "MyGO!!!!!": "band-tag-MyGO",
-      "Ave Mujica": "band-tag-AveMujica",
-      "Glitter*Green": "band-tag-GlitterGreen",
-      "CHiSPA": "band-tag-CHiSPA",
-      "CRYCHIC": "band-tag-CRYCHIC",
-      "sumimi": "band-tag-sumimi",
-    };
-
-    const seasons = ["全部", "S1", "S2", "S3", "Film Live", "Episode of Roselia", "Morfonication", "Poppin’Dream!", "CiRCLE THANKS PARTY!", "MyGO!!!!!", "Ave Mujica"];
-    const bands = ["全部", "Poppin'Party", "Roselia", "RAISE A SUILEN", "MyGO!!!!!", "Ave Mujica", "Morfonica", "Afterglow", "Pastel*Palettes", "Hello, Happy World!", "其他"];
-
-    const FAV_KEY = "bangdream_favs";
-    const MAIN_BANDS = new Set(["Poppin'Party", "Roselia", "RAISE A SUILEN", "MyGO!!!!!", "Ave Mujica", "Morfonica", "Afterglow", "Pastel*Palettes", "Hello, Happy World!"]);
-
-    const app = {
-      state: {
-        seasonFilter: "全部",
-        bandFilter: "全部",
-        searchQuery: "",
-        favoritesOnly: false,
-        favorites: new Set(),
-      },
-
-      init() {
-        this.loadFavorites();
-        this.renderFilters();
-        this.renderSongs();
-
-        document.getElementById("searchInput").addEventListener("input", (e) => {
-          this.state.searchQuery = e.target.value.trim().toLowerCase();
-          this.renderSongs();
-        });
-
-        const hero = document.getElementById("heroImage");
-        if (hero) hero.src = heroImageUrl;
-
-        this.updateFavoritesOnlyButton();
-      },
-
-      loadFavorites() {
-        try {
-          const saved = localStorage.getItem(FAV_KEY);
-          if (saved) this.state.favorites = new Set(JSON.parse(saved));
-        } catch {
-          this.state.favorites = new Set();
-        }
-      },
-
-      saveFavorites() {
-        localStorage.setItem(FAV_KEY, JSON.stringify([...this.state.favorites]));
-      },
-
-      toggleFavorite(id) {
-        this.state.favorites.has(id) ? this.state.favorites.delete(id) : this.state.favorites.add(id);
-        this.saveFavorites();
-        this.renderSongs();
-      },
-
-      setSeasonFilter(season) {
-        this.state.seasonFilter = season;
-        this.renderFilters();
-        this.renderSongs();
-      },
-
-      setBandFilter(band) {
-        this.state.bandFilter = band;
-        this.renderFilters();
-        this.renderSongs();
-      },
-
-      toggleFavoritesOnly() {
-        this.state.favoritesOnly = !this.state.favoritesOnly;
-        this.updateFavoritesOnlyButton();
-        this.renderSongs();
-      },
-
-      resetFilters() {
-        this.state.seasonFilter = "全部";
-        this.state.bandFilter = "全部";
-        this.state.searchQuery = "";
-        this.state.favoritesOnly = false;
-
-        document.getElementById("searchInput").value = "";
-        this.updateFavoritesOnlyButton();
-        this.renderFilters();
-        this.renderSongs();
-      },
-
-      updateFavoritesOnlyButton() {
-        const btn = document.getElementById("favFilterBtn");
-        const text = document.getElementById("favBtnText");
-
-        if (this.state.favoritesOnly) {
-          btn.classList.add("bg-pink-600", "border-pink-400");
-          btn.classList.remove("bg-slate-700", "border-slate-500");
-          text.textContent = "显示全部";
-        } else {
-          btn.classList.remove("bg-pink-600", "border-pink-400");
-          btn.classList.add("bg-slate-700", "border-slate-500");
-          text.textContent = "只看收藏";
-        }
-      },
-
-      renderFilters() {
-        const sContainer = document.getElementById("seasonFilters");
-        sContainer.innerHTML = seasons
-          .map((s) => `
-            <button onclick="app.setSeasonFilter('${s}')"
-              class="px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap transition
-                ${this.state.seasonFilter === s ? "bg-white text-slate-900 shadow-lg scale-105" : "bg-slate-700 text-slate-300 hover:bg-slate-600"}">
-              ${s}
-            </button>`)
-          .join("");
-
-        const bContainer = document.getElementById("bandFilters");
-        bContainer.innerHTML = bands
-          .map((b) => `
+          <div class="flex gap-3 w-full md:w-auto">
             <button
-              data-band="${b}"
-              class="band-filter-btn px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap transition border
-                ${this.state.bandFilter === b
-                  ? "border-pink-500 bg-slate-800 text-pink-400 shadow-[0_0_10px_rgba(236,72,153,0.3)]"
-                  : "border-slate-600 bg-transparent text-slate-400 hover:border-slate-400"}">
-              ${b}
-            </button>`)
-          .join("");
+              id="favFilterBtn"
+              class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-white px-5 py-3 rounded-full transition border border-slate-500"
+            >
+              <span class="material-symbols-outlined text-red-400"
+                >favorite</span
+              >
+              <span id="favBtnText">只看收藏</span>
+            </button>
 
-        document.querySelectorAll(".band-filter-btn").forEach(btn => {
-          btn.addEventListener("click", () => {
-            const band = btn.dataset.band;
-            app.setBandFilter(band);
-          });
-        });
-      },
+            <button
+              id="shareBtn"
+              class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white px-6 py-3 rounded-full shadow-lg transition transform hover:scale-105"
+            >
+              <span class="material-symbols-outlined">share</span>
+              <span>分享喜爱</span>
+            </button>
+          </div>
+        </div>
 
-      renderSongs() {
-        const grid = document.getElementById("songGrid");
-        const empty = document.getElementById("emptyState");
+        <!-- Filters -->
+        <div class="flex flex-col gap-4">
+          <div class="overflow-x-auto pb-2">
+            <div id="seasonFilters" class="flex gap-2 min-w-max"></div>
+          </div>
 
-        const q = this.state.searchQuery;
+          <div class="overflow-x-auto pb-2">
+            <div id="bandFilters" class="flex gap-2 min-w-max"></div>
+          </div>
+        </div>
+      </div>
 
-        const filtered = songsData.filter((song) => {
-          const matchSearch =
-            !q ||
-            song.title.toLowerCase().includes(q) ||
-            (song.trans || "").toLowerCase().includes(q) ||
-            song.band.toLowerCase().includes(q);
+      <!-- Grid -->
+      <div
+        id="songGrid"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      ></div>
 
-          const matchSeason = this.state.seasonFilter === "全部" || song.season === this.state.seasonFilter;
+      <!-- Empty -->
+      <div id="emptyState" class="hidden text-center py-20">
+        <span class="material-symbols-outlined text-6xl text-slate-600 mb-4"
+          >music_off</span
+        >
+        <p class="text-xl text-slate-400">没有找到匹配的歌曲</p>
+        <button id="resetFiltersBtn" class="mt-4 text-pink-400 hover:underline">
+          重置筛选
+        </button>
+      </div>
+    </div>
 
-          let matchBand = false;
-          if (this.state.bandFilter === "全部") matchBand = true;
-          else if (this.state.bandFilter === "其他") matchBand = !MAIN_BANDS.has(song.band);
-          else matchBand = song.band === this.state.bandFilter;
+    <!-- Toast -->
+    <div
+      id="toast"
+      class="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-slate-800 border border-slate-600 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 transition-opacity duration-300 opacity-0 pointer-events-none z-50"
+    >
+      <span class="material-symbols-outlined text-green-400">check_circle</span>
+      <span id="toastMsg">操作成功</span>
+    </div>
 
-          const matchFav = !this.state.favoritesOnly || this.state.favorites.has(song.id);
-
-          return matchSearch && matchSeason && matchBand && matchFav;
-        });
-
-        if (!filtered.length) {
-          grid.innerHTML = "";
-          empty.classList.remove("hidden");
-          return;
-        }
-        empty.classList.add("hidden");
-
-        grid.innerHTML = filtered
-          .map((song) => {
-            const isFav = this.state.favorites.has(song.id);
-            const bandClass = bandStyles[song.band] || "bg-slate-600 text-white";
-            const imageSrc = bandImages[song.band] || "images/default.png";
-            const bilibiliUrl = `https://search.bilibili.com/all?keyword=${encodeURIComponent(`Hi-Res ${song.title} BanG Dream!`)}`;
-
-            return `
-              <div class="bg-slate-800 rounded-xl overflow-hidden shadow-lg card-hover group relative flex flex-col h-full border border-slate-700">
-                <div class="relative h-48 overflow-hidden bg-slate-900">
-                  <img src="${imageSrc}" alt="${song.band}"
-                       class="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80"></div>
-                  <div class="absolute bottom-2 left-3 right-3 flex justify-between items-end">
-                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400 bg-slate-900/80 px-2 py-1 rounded backdrop-blur-sm">
-                      ${song.season} • ${song.ep}
-                    </span>
-                  </div>
-                </div>
-
-                <div class="p-5 flex-grow flex flex-col relative">
-                  <button onclick="app.toggleFavorite(${song.id})"
-                    class="like-btn absolute -top-6 right-4 w-12 h-12 rounded-full bg-slate-700 border border-slate-500 shadow-lg flex items-center justify-center transition hover:bg-slate-600 hover:scale-110 z-10 ${isFav ? "active border-red-500" : ""}">
-                    <span class="material-symbols-outlined text-2xl text-slate-300 transition-colors">favorite</span>
-                  </button>
-
-                  <div class="mb-2">
-                    <span class="text-xs font-bold px-2 py-1 rounded ${bandClass} inline-block shadow-sm">${song.band}</span>
-                  </div>
-
-                  <h3 class="text-xl font-bold text-white mb-1 leading-tight group-hover:text-pink-400 transition">${song.title}</h3>
-                  ${song.trans ? `<p class="text-sm text-slate-400 mb-4">${song.trans}</p>` : '<div class="mb-4"></div>'}
-
-                  <div class="mt-auto pt-4 border-t border-slate-700 flex justify-between items-center">
-                    <span class="text-xs text-slate-500 bg-slate-800 px-2 py-1 rounded border border-slate-700">${song.type}</span>
-                  </div>
-
-                  <a href="${bilibiliUrl}" target="_blank" rel="noreferrer"
-                     class="play-btn absolute bottom-3 right-3 w-10 h-10 rounded-full bg-pink-600 hover:bg-pink-500 text-white flex items-center justify-center shadow-lg transition transform hover:-translate-y-1 hover:scale-110 z-20 group-hover:bg-pink-500">
-                    <span class="material-symbols-outlined text-2xl">arrow_forward</span>
-                  </a>
-                </div>
-              </div>
-            `;
-          })
-          .join("");
-      },
-
-      shareFavorites() {
-        if (!this.state.favorites.size) {
-          this.showToast("请先收藏一些歌曲！", "error");
-          return;
-        }
-
-        const favSongs = songsData.filter((s) => this.state.favorites.has(s.id));
-        let text = "🎵 我的 BanG Dream! 歌单分享 🎵";
-        favSongs.forEach((s, i) => {
-          text += `\n${i + 1}. ${s.title} (${s.band})`;
-        });
-        text += "\n来自 BangSongs Archive 网页( fflow2023.github.io/bangsongs )";
-
-        navigator.clipboard
-          .writeText(text)
-          .then(() => this.showToast("歌单已复制到剪贴板！"))
-          .catch(() => this.showToast("复制失败，请重试", "error"));
-      },
-
-      showToast(msg, type = "success") {
-        const toast = document.getElementById("toast");
-        const msgEl = document.getElementById("toastMsg");
-        const iconEl = toast.querySelector("span");
-
-        msgEl.textContent = msg;
-        if (type === "error") {
-          iconEl.textContent = "error";
-          iconEl.classList.replace("text-green-400", "text-red-400");
-        } else {
-          iconEl.textContent = "check_circle";
-          iconEl.classList.replace("text-red-400", "text-green-400");
-        }
-
-        toast.classList.remove("opacity-0", "pointer-events-none");
-        window.clearTimeout(this._toastTimer);
-        this._toastTimer = window.setTimeout(() => {
-          toast.classList.add("opacity-0", "pointer-events-none");
-        }, 3000);
-      },
-    };
-
-    window.app = app;
-    document.addEventListener("DOMContentLoaded", () => app.init());
-  </script>
-</body>
+    <!-- 外部脚本：数据在前，逻辑在后 -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
 </html>
